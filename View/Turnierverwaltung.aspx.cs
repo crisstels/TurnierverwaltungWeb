@@ -9,9 +9,29 @@ namespace TurnierverwaltungWeb.View
 {
     public partial class Turnierverwaltung : System.Web.UI.Page
     {
+        private Controller _verwalter;
+
+        public Controller Verwalter
+        {
+            get => _verwalter;
+            set => _verwalter = value;
+        }
+
+        public Turnierverwaltung() : base()
+        {
+            Verwalter = new Controller();
+        }
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Verwalter = Global.Verwalter;
+            LoadData();
+        }
 
+        private void LoadData()
+        {
+            throw new NotImplementedException();
         }
     }
 }
