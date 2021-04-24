@@ -61,6 +61,7 @@ namespace TurnierverwaltungWeb
         {
             string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
+            long lastID = 0;
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
             int anzahl = -1;
@@ -84,6 +85,7 @@ namespace TurnierverwaltungWeb
             try
             {
                 anzahl = command.ExecuteNonQuery();
+                lastID = Connection.LastInsertRowId;
             }
             catch (Exception e)
             {
@@ -97,7 +99,7 @@ namespace TurnierverwaltungWeb
 
             // speichert nun die Daten in die Spielertabelle
 
-            string insertSpieler = "insert into Volleyballspieler (Trikotnummer, Position) values('" + Spielernummer + "', '" + Position + "');";
+            string insertSpieler = "insert into Volleyballspieler (Trikotnummer, Position, TeilnehmerID) values('" + Spielernummer + "', '" + Position + "', '" + lastID +"');";
             SQLiteCommand command1 = new SQLiteCommand(insertSpieler, Connection);
             anzahl = -1;
 

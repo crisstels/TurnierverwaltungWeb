@@ -21,17 +21,28 @@
         </ul>
     </div>
 </nav>
-<form id="form1" runat="server">
-    <p class="bg-primary">Turnierverwaltung</p>
-    <div class="col-lg-6">
-        <label for="firstname">Name</label>
-            <div class="input-group">
-              <input type="text" id="firstname" class="form-control" placeholder="Please enter your firstname here...">
-              <span class="input-group-btn" >
-                <button class="btn btn-default" type="button">Go!</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-</form>
+    <form class="form-horizontal" runat="server">
+        <div class="form-group">
+            <asp:Label ID="lbName" runat="server" Text="Name" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbName" runat="server" placeholder="Enter your lastname here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbVorname" runat="server" Text="Vorname" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbVorname" runat="server" placeholder="Enter your first name here..."></asp:TextBox>
+        </div>
+        <div class="form-group col-sm-offset-2 col-sm-10">
+            <asp:Button ID="BPerson" runat="server" Text="Submit" OnClick="btnOk_Click" CssClass="btn btn-default btn-lg" />
+        </div>
+    </form>
+    <asp:Table ID="Person" runat="server" CssClass="table">
+        <asp:TableHeaderRow CssClass="active">
+            <asp:TableCell>ID</asp:TableCell>
+            <asp:TableCell>Rolle</asp:TableCell>
+            <asp:TableCell>Name</asp:TableCell>
+            <asp:TableCell>Vorname</asp:TableCell>
+            <asp:TableCell>Position</asp:TableCell>
+            <asp:TableCell>TrikotNummer</asp:TableCell>
+        </asp:TableHeaderRow>
+    </asp:Table>
 </body>
 </html>
