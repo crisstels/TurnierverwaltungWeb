@@ -65,6 +65,14 @@ namespace TurnierverwaltungWeb.View
                 neueZelle.Text = Convert.ToString(tln.Spielernummer);
                 neueZeile.Cells.Add(neueZelle);
 
+                neueZelle = new TableCell();
+                neueZelle.Text = tln.Geburtstag;
+                neueZeile.Cells.Add(neueZelle);
+
+                neueZelle = new TableCell();
+                neueZelle.Text = Convert.ToString(tln.Groesse);
+                neueZeile.Cells.Add(neueZelle);
+
                 this.Person.Rows.Add(neueZeile);            
             }
 

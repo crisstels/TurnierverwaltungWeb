@@ -13,6 +13,8 @@ namespace TurnierverwaltungWeb
         private string _vorname;
         private string _rolle;
         private int _nummer;
+        private string _geburtstag;
+        private int _groesse;
         #endregion
 
         #region Accessors/Modifiers
@@ -29,6 +31,8 @@ namespace TurnierverwaltungWeb
         }
         public int Nummer { get => _nummer; set => _nummer = value; }
         public string Vorname { get => _vorname; set => _vorname = value; }
+        public string Geburtstag { get => _geburtstag; set => _geburtstag = value; }
+        public int Groesse { get => _groesse; set => _groesse = value; }
         #endregion
         #region Constructor
 
@@ -36,14 +40,19 @@ namespace TurnierverwaltungWeb
         {
             Name = " ";
             Rolle = " ";
+            Vorname = " ";
+            Geburtstag = " ";
+            Groesse = 0;
         }
 
-        public Teilnehmer(string name, string vorname, string rolle, int nummer)
+        public Teilnehmer(string name, string vorname, string rolle, int nummer, string geburtstag, int groesse)
         {
             Name = name;
             Rolle = rolle;
             Nummer = nummer;
             Vorname = vorname;
+            Geburtstag = geburtstag;
+            Groesse = groesse;
         }
         #endregion
         #region Worker

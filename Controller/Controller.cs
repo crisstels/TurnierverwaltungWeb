@@ -53,14 +53,17 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
-                    string id = reader.GetValue(0).ToString();
+                    int id = reader.GetInt32(0);
                     string rolle = reader.GetValue(1).ToString();
                     string name = reader.GetValue(2).ToString();
                     string vorname = reader.GetValue(3).ToString();
-                    string trikotnummer = reader.GetValue(4).ToString();
-                    string position = reader.GetValue(5).ToString();
+                    string geburtstag = reader.GetValue(4).ToString();
+                    int groesse = reader.GetInt32(5);
+                    int trikotnummer = reader.GetInt32(7);
+                    string position = reader.GetValue(8).ToString();
+                    int sprunghoehe = reader.GetInt32(9);
 
-                    Teilnehmer tln = new Volleyballspieler(name, vorname, rolle, Convert.ToInt32(id), Convert.ToInt32(trikotnummer), position);
+                    Teilnehmer tln = new Volleyballspieler(name, vorname, rolle, id, geburtstag, groesse, trikotnummer, position, sprunghoehe);
 
                     Teilnehmer.Add(tln);
 
@@ -74,9 +77,9 @@ namespace TurnierverwaltungWeb
 
         public void PersonHinzufuegen(string name, string vorname)
         {
-            Teilnehmer tln = new Volleyballspieler(name, vorname, "Volleyballspieler", 1, 4, "Libero");
-            tln.DatenSpeichern();
-            this.Teilnehmer.Add(tln);
+            //Teilnehmer tln = new Volleyballspieler(name, vorname, "Volleyballspieler", 1, 4, "Libero");
+            //tln.DatenSpeichern();
+            //this.Teilnehmer.Add(tln);
         }
 
         #region Worker

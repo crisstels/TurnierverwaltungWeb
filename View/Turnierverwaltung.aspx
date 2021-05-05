@@ -42,6 +42,9 @@
             <asp:TableCell>Vorname</asp:TableCell>
             <asp:TableCell>Position</asp:TableCell>
             <asp:TableCell>TrikotNummer</asp:TableCell>
+            <asp:TableCell>Geburtstag</asp:TableCell>
+            <asp:TableCell>Größe</asp:TableCell>
+
         </asp:TableHeaderRow>
     </asp:Table>
 </body>

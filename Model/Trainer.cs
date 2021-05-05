@@ -29,7 +29,7 @@ namespace TurnierverwaltungWeb
             Erfahrung = 0;
         }
 
-        public Trainer(string name, string vorname, string rolle, int nummer, int trainerNummer, string sportart, int erfahrung) : base(name, vorname, rolle, nummer)
+        public Trainer(string name, string vorname, string rolle, int nummer, string geburtstag, int groesse, int trainerNummer, string sportart, int erfahrung) : base(name, vorname, rolle, nummer, geburtstag, groesse)
         {
             TrainerNummer = trainerNummer;
             Sportart = sportart;

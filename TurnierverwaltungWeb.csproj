@@ -183,6 +183,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\Basketballspieler.cs" />
+    <Compile Include="Model\Fussballspieler.cs" />
     <Compile Include="Model\Physio.cs" />
     <Compile Include="Model\Teilnehmer.cs" />
     <Compile Include="Model\Trainer.cs" />
@@ -198,8 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
