@@ -40,8 +40,6 @@
             <asp:TableCell>Rolle</asp:TableCell>
             <asp:TableCell>Name</asp:TableCell>
             <asp:TableCell>Vorname</asp:TableCell>
-            <asp:TableCell>Position</asp:TableCell>
-            <asp:TableCell>TrikotNummer</asp:TableCell>
             <asp:TableCell>Geburtstag</asp:TableCell>
             <asp:TableCell>Größe</asp:TableCell>
 

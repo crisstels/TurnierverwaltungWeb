@@ -38,40 +38,34 @@ namespace TurnierverwaltungWeb.View
             this.Person.Rows.Clear();
             this.Person.Rows.Add(tmp);
 
-            foreach (Volleyballspieler tln in Verwalter.Teilnehmer)
+            foreach (Teilnehmer tln in Verwalter.Teilnehmer)
             {
                 TableRow neueZeile = new TableRow();
-                TableCell neueZelle = new TableCell();
-                neueZelle.Text = tln.Nummer.ToString();
-                neueZeile.Cells.Add(neueZelle);
+                TableCell neueSpalte = new TableCell();
 
-                neueZelle = new TableCell();
-                neueZelle.Text = tln.Rolle;
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte.Text = tln.Nummer.ToString();
+                neueZeile.Cells.Add(neueSpalte);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = tln.Name;
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Rolle;
+                neueZeile.Cells.Add(neueSpalte);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = tln.Vorname;
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Name;
+                neueZeile.Cells.Add(neueSpalte);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = tln.Position;
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Vorname;
+                neueZeile.Cells.Add(neueSpalte);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = Convert.ToString(tln.Spielernummer);
-                neueZeile.Cells.Add(neueZelle);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = tln.Geburtstag;
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Geburtstag;
+                neueZeile.Cells.Add(neueSpalte);
 
-                neueZelle = new TableCell();
-                neueZelle.Text = Convert.ToString(tln.Groesse);
-                neueZeile.Cells.Add(neueZelle);
+                neueSpalte = new TableCell();
+                neueSpalte.Text = Convert.ToString(tln.Groesse);
+                neueZeile.Cells.Add(neueSpalte);
 
                 this.Person.Rows.Add(neueZeile);            
             }

@@ -10,18 +10,18 @@ namespace TurnierverwaltungWeb
     {
         #region Properties
 
-        private int _spielernummer;
+        private int _trikotnummer;
         private string _position;
-        private int _tor;
+        private string _fuss;
 
         #endregion
 
         #region Accessors/Modifiers
 
-        public int Spielernummer
+        public int Trikotnummer
         {
-            get => _spielernummer;
-            set => _spielernummer = value;
+            get => _trikotnummer;
+            set => _trikotnummer = value;
         }
 
         public string Position
@@ -29,7 +29,7 @@ namespace TurnierverwaltungWeb
             get => _position;
             set => _position = value;
         }
-        public int Tor { get => _tor; set => _tor = value; }
+        public string Fuss { get => _fuss; set => _fuss = value; }
 
         #endregion
 
@@ -38,28 +38,26 @@ namespace TurnierverwaltungWeb
         public Fussballspieler()
         {
             Position = " ";
-            Spielernummer = 0;
+            Trikotnummer = 0;
         }
 
-        public Fussballspieler(int spielernummer, string position, int tore)
+        public Fussballspieler(int trikotnummer, string position, string fuss)
         {
-            Spielernummer = spielernummer;
+            Trikotnummer = trikotnummer;
             Position = position;
-            Tor = tore;
+            Fuss = fuss;
         }
 
-        public Fussballspieler(string name, string vorname, string rolle, int nummer, string geburtstag, int groesse, int spielernummer, string position, int tore) : base(name, vorname, rolle, nummer, geburtstag, groesse)
+        public Fussballspieler(string name, string vorname, string rolle, int nummer, string geburtstag, int groesse, int trikotnummer, string position, string fuss) : base(name, vorname, rolle, nummer, geburtstag, groesse)
         {
-            Spielernummer = spielernummer;
+            Trikotnummer = trikotnummer;
             Position = position;
-            Tor = tore;
+            Fuss = fuss;
         }
 
         #endregion
 
         #region Worker
-
-        public void BallPassen() { }
 
         public override void DatenSpeichern()
         {
@@ -103,7 +101,7 @@ namespace TurnierverwaltungWeb
 
             // speichert nun die Daten in die Spielertabelle
 
-            string insertSpieler = "insert into Fussballspieler (Trikotnummer, Position, Tor, TeilnehmerID) values('" + Spielernummer + "', '" + Position + "', '"+ Tor +"', '" + lastID + "');";
+            string insertSpieler = "insert into Fussballspieler (Trikotnummer, Position, Fuss, TeilnehmerID) values('" + Trikotnummer + "', '" + Position + "', '"+ Fuss +"', '" + lastID + "');";
             SQLiteCommand command1 = new SQLiteCommand(insertSpieler, Connection);
             anzahl = -1;
 
@@ -126,6 +124,102 @@ namespace TurnierverwaltungWeb
 
         }
 
+
+        public override void DatenBearbeiten(Teilnehmer tln)
+        {
+            Fussballspieler fussball = (Fussballspieler)tln;
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
+
+            SQLiteConnection Connection = new SQLiteConnection(connectionString);
+            SQLiteDataReader reader = null;
+
+            // Open Database Connection
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            //update entry in Teilnehmer table
+            string updateTeilnehmer = "UPDATE Teilnehmer SET Rolle='" + tln.Rolle + "' Name='" + tln.Name + "' Vorname= '" + tln.Vorname + "' " +
+                "Geburtstag='" + tln.Geburtstag + "' Groesse='" + tln.Groesse + "' WHERE TeilnehmerID='" + tln.Nummer + "' ";
+            SQLiteCommand command = new SQLiteCommand(updateTeilnehmer, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            //update entry in Fussballspieler table
+            string updateFussball = "UPDATE Fussballspieler SET VolleyballspielerID='" + tln.Nummer + "' Trikotnummer='" + fussball.Trikotnummer + "' Position= '" + fussball.Position + "' " +
+                "Fuss='" + fussball.Fuss + "'  WHERE TeilnehmerID='" + tln.Nummer + "' ";
+            command = new SQLiteCommand(updateFussball, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            //close connections
+
+            Connection.Close();
+        }
+
+        public override void DatenLöschen(Teilnehmer tln)
+        {
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
+
+            SQLiteConnection Connection = new SQLiteConnection(connectionString);
+            SQLiteDataReader reader = null;
+
+            // Open Database Connection
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            //delete one entry from Teilnehmer
+            string delete = "DELETE FROM Teilnehmer WHERE TeilnehmerID='" + tln.Nummer + "' ";
+            SQLiteCommand command = new SQLiteCommand(delete, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            //delete one entry from Fussballspieler
+            delete = "DELETE FROM Fussballspieler WHERE FussballspielerID='" + tln.Nummer + "' ";
+            command = new SQLiteCommand(delete, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
         #endregion
     }
 }
