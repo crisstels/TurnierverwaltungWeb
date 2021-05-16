@@ -8,14 +8,14 @@ namespace TurnierverwaltungWeb
 {
     public class Controller
     {
-        private List<Teilnehmer> _teilnehmer;
+        private List<Teilnehmer> _teilnehmerListe;
 
-        public List<Teilnehmer> Teilnehmer { get => _teilnehmer; set => _teilnehmer = value; }
+        public List<Teilnehmer> TeilnehmerListe { get => _teilnehmerListe; set => _teilnehmerListe = value; }
 
 
         public Controller()
         {
-            Teilnehmer = new List<Teilnehmer>();
+            TeilnehmerListe = new List<Teilnehmer>();
         }
 
         public void HoleAllePersonen()
@@ -63,7 +63,7 @@ namespace TurnierverwaltungWeb
                     int sprunghoehe = reader.GetInt32(9);
 
                     Teilnehmer volleyballspieler = new Volleyballspieler(name, vorname, rolle, id, geburtstag, groesse, trikotnummer, position, sprunghoehe);
-                    Teilnehmer.Add(volleyballspieler);
+                    TeilnehmerListe.Add(volleyballspieler);
                 }
             }
             else
@@ -100,7 +100,7 @@ namespace TurnierverwaltungWeb
                     string fuss = reader.GetValue(9).ToString();
 
                     Teilnehmer fussballspieler = new Fussballspieler(name, vorname, rolle, id, geburtstag, groesse, trikotnummer, position, fuss);
-                    Teilnehmer.Add(fussballspieler);
+                    TeilnehmerListe.Add(fussballspieler);
                 }
             }
             else
@@ -137,7 +137,7 @@ namespace TurnierverwaltungWeb
                     int koerbe = reader.GetInt32(9);
 
                     Teilnehmer basketballspieler = new Basketballspieler(name, vorname, rolle, id, geburtstag, groesse, trikotnummer, position, koerbe);
-                    Teilnehmer.Add(basketballspieler);
+                    TeilnehmerListe.Add(basketballspieler);
                 }
             }
             else
@@ -173,7 +173,7 @@ namespace TurnierverwaltungWeb
                     int jahreErfahrung = reader.GetInt32(8);
 
                     Teilnehmer trainer = new Trainer(name, vorname, rolle, id, geburtstag, groesse, sportart, jahreErfahrung);
-                    Teilnehmer.Add(trainer);
+                    TeilnehmerListe.Add(trainer);
                 }
             }
             else
@@ -185,11 +185,49 @@ namespace TurnierverwaltungWeb
 
         }
 
-        public void PersonHinzufuegen(string name, string vorname)
+        public void PersonHinzufuegen()
         {
             //Teilnehmer tln = new Volleyballspieler(name, vorname, "Volleyballspieler", 1, 4, "Libero");
             //tln.DatenSpeichern();
             //this.Teilnehmer.Add(tln);
+        }
+        public void VolleyballspielerHinzufuegen(string name, string vorname, string rolle, string geburtstag, int groesse, string position, int trikotnummer, int sprunghoehe)
+        {
+            Volleyballspieler tln = new Volleyballspieler(name, vorname, rolle, 0, geburtstag, groesse, trikotnummer, position, sprunghoehe);
+            tln.DatenSpeichern();
+        }
+
+        public void FussballspielerHinzufuegen(string name, string vorname, string rolle, string geburtstag, int groesse, string position, int trikotnummer, string fuss)
+        {
+            Teilnehmer tln = new Fussballspieler(name, vorname, rolle, 0, geburtstag, groesse, trikotnummer, position, fuss);
+            tln.DatenSpeichern();
+        }
+
+        public void BasketballspielerHinzufuegen(string name, string vorname, string rolle, string geburtstag, int groesse, string position, int trikotnummer, int anzahlkoerbe)
+        {
+            Teilnehmer tln = new Basketballspieler(name, vorname, rolle, 0, geburtstag, groesse, trikotnummer, position, anzahlkoerbe);
+            tln.DatenSpeichern();
+        }
+
+        public void TrainerHinzufuegen(string name, string vorname, string rolle, string geburtstag, int groesse, string sportart, int jahreErfahrung)
+        {
+            Teilnehmer tln = new Trainer(name, vorname, rolle, 0, geburtstag, groesse, sportart, jahreErfahrung);
+            tln.DatenSpeichern();
+        }
+
+        public void PersonLoeschen(int nummer)
+        {
+            //suche Teilnehmer anhand der Id und lösche diesen
+            
+            var tln = TeilnehmerListe.Find(e => e.Nummer == nummer);
+            tln.DatenLöschen(tln); 
+        }
+
+        public void PersonBearbeiten(int nummer)
+        {
+            //suche Teilnehmer anhand der Id und bearbeite diesen
+            var tln = TeilnehmerListe.Find(e => e.Nummer == nummer);
+            tln.DatenBearbeiten(tln);
         }
 
         #region Worker

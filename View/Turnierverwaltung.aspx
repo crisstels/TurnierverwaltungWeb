@@ -30,6 +30,46 @@
             <asp:Label ID="lbVorname" runat="server" Text="Vorname" CssClass="col-sm-2 control-label"></asp:Label>
             <asp:TextBox ID="tbVorname" runat="server" placeholder="Enter your first name here..."></asp:TextBox>
         </div>
+        <div class="form-group">
+            <asp:Label ID="lbRolle" runat="server" Text="Rolle" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbRolle" runat="server"  AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your role here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbGeburtstag" runat="server" Text="Geburtstag" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbGeburtstag" runat="server"  placeholder="Enter your birthday (DD-MM-YYYYY) here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbGroesse" runat="server" Text="Groesse" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbGroesse" runat="server" placeholder="Enter your height in cm here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbTrikotnummer" runat="server" visible="false" Text="Trikotnummer" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbTrikotnummer" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your shirt number here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbPostion" runat="server" visible="false" Text="Position" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbPosition" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your position in a match here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbSprunghoehe" runat="server" visible="false" Text="Sprunghoehe" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbSprunghoehe" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your spike in cm here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbAnzahlKoerbe" runat="server" visible="false" Text="Anzahl Koerbe" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbAnzeahlKoerbe" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your number of slam-dunks here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbFuss" runat="server" visible="false" Text="Fuss" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbFuss" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your strong foot here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbSportart" runat="server" visible="false" Text="Sportart" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbSportart" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your sport here..."></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="lbJahreErfahrung" runat="server" visible="false" Text="Jahre Erfahrung" CssClass="col-sm-2 control-label"></asp:Label>
+            <asp:TextBox ID="tbJahreErfahrung" runat="server"  visible="false" AutoPostBack="True" OnTextChanged="RoleInputChanged" placeholder="Enter your year of expierence here..."></asp:TextBox>
+        </div>
         <div class="form-group col-sm-offset-2 col-sm-10">
             <asp:Button ID="BPerson" runat="server" Text="Submit" OnClick="btnOk_Click" CssClass="btn btn-default btn-lg" />
         </div>
