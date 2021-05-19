@@ -1,4 +1,5 @@
 ﻿using System;
+using TurnierverwaltungWeb.Properties;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -91,7 +92,7 @@ namespace TurnierverwaltungWeb.View
                     Verwalter.BasketballspielerHinzufuegen(tbName.Text, tbVorname.Text, tbRolle.Text, tbGeburtstag.Text, groesse, tbPosition.Text, Convert.ToInt32(tbTrikotnummer.Text), Convert.ToInt32(tbAnzeahlKoerbe.Text));
                     break;
                 case "trainer":
-                    Verwalter.TrainerHinzufuegen(tbName.Text, tbVorname.Text, tbRolle.Text, tbGeburtstag.Text, groesse, tbSportart.Text, Convert.ToInt32(tbJahreErfahrung));
+                    Verwalter.TrainerHinzufuegen(tbName.Text, tbVorname.Text, tbRolle.Text, tbGeburtstag.Text, groesse, tbSportart.Text, int.Parse(tbJahreErfahrung.Text));
                     break;
             }
  

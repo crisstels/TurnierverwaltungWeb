@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using TurnierverwaltungWeb.Properties;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,11 +19,11 @@ namespace TurnierverwaltungWeb
         {
             TeilnehmerListe = new List<Teilnehmer>();
         }
-
         public void HoleAllePersonen()
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
-            string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
+            var path = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+
+            string connectionString = "Data Source=" + path + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
             SQLiteDataReader reader = null;
@@ -58,11 +60,12 @@ namespace TurnierverwaltungWeb
                     string vorname = reader.GetValue(3).ToString();
                     string geburtstag = reader.GetValue(4).ToString();
                     int groesse = reader.GetInt32(5);
-                    int trikotnummer = reader.GetInt32(7);
+                    int spielernummer = reader.GetInt32(6);
+                    string trikotnummer = reader.GetValue(7).ToString();
                     string position = reader.GetValue(8).ToString();
                     int sprunghoehe = reader.GetInt32(9);
 
-                    Teilnehmer volleyballspieler = new Volleyballspieler(name, vorname, rolle, id, geburtstag, groesse, trikotnummer, position, sprunghoehe);
+                    Teilnehmer volleyballspieler = new Volleyballspieler(name, vorname, rolle, id, geburtstag, groesse, Convert.ToInt32(trikotnummer), position, sprunghoehe);
                     TeilnehmerListe.Add(volleyballspieler);
                 }
             }
@@ -89,6 +92,7 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
+                    System.Diagnostics.Debug.WriteLine("Fussball");
                     int id = reader.GetInt32(0);
                     string rolle = reader.GetValue(1).ToString();
                     string name = reader.GetValue(2).ToString();
@@ -126,6 +130,7 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
+                    System.Diagnostics.Debug.WriteLine("Basketball");
                     int id = reader.GetInt32(0);
                     string rolle = reader.GetValue(1).ToString();
                     string name = reader.GetValue(2).ToString();
@@ -163,6 +168,7 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
+                    System.Diagnostics.Debug.WriteLine("Trainer");
                     int id = reader.GetInt32(0);
                     string rolle = reader.GetValue(1).ToString();
                     string name = reader.GetValue(2).ToString();

@@ -61,7 +61,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenSpeichern()
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
             long lastID = 0;
 
@@ -81,7 +81,7 @@ namespace TurnierverwaltungWeb
 
             // speichert zuerst die Daten in die Teilnehmertabelle
 
-            string insertTeilnehmer = "insert into Teilnehmer (rolle, name, vorname) values('" + Rolle + "', '" + Name + "', '" + Vorname + "');";
+            string insertTeilnehmer = "insert into Teilnehmer(Rolle, Name, Vorname, Geburtstag, Groesse ) values('" + Rolle + "', '" + Name + "', '" + Vorname + "', '" + Geburtstag + "', '" + Groesse + "'); ";
             SQLiteCommand command = new SQLiteCommand(insertTeilnehmer, Connection);
 
             try
@@ -128,7 +128,7 @@ namespace TurnierverwaltungWeb
         public override void DatenBearbeiten(Teilnehmer tln)
         {
             Fussballspieler fussball = (Fussballspieler)tln;
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
@@ -178,7 +178,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenLöschen(Teilnehmer tln)
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);

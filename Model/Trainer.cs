@@ -38,7 +38,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenSpeichern()
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
@@ -58,7 +58,7 @@ namespace TurnierverwaltungWeb
 
             // speichert zuerst die Daten in die Teilnehmertabelle
 
-            string insertTeilnehmer = "insert into Teilnehmer values('" + Nummer + "', '" + Rolle + "', '" + Name + "', '" + Vorname + "');";
+            string insertTeilnehmer = "insert into Teilnehmer (Rolle, Name, Vorname, Geburtstag, Groesse ) values('" + Rolle + "', '" + Name + "', '" + Vorname + "', '" + Geburtstag + "', '" + Groesse + "');";
             SQLiteCommand command = new SQLiteCommand(insertTeilnehmer, Connection);
 
             try
@@ -68,7 +68,7 @@ namespace TurnierverwaltungWeb
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
 
             if (anzahl > 0)
@@ -78,7 +78,7 @@ namespace TurnierverwaltungWeb
 
             // speichert nun die Daten in die Trainertabelle
 
-            string insertTrainer = "insert into Trainer values('" + Nummer + "', '" + lastID + "', '" + Sportart + "', '" + Erfahrung + "');";
+            string insertTrainer = "insert into Trainer values('" + lastID + "', '" + Sportart + "', '" + Erfahrung + "');";
             SQLiteCommand command1 = new SQLiteCommand(insertTrainer, Connection);
             anzahl = -1;
 
@@ -104,7 +104,7 @@ namespace TurnierverwaltungWeb
         public override void DatenBearbeiten(Teilnehmer tln)
         {
             Trainer trainer = (Trainer)tln;
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
@@ -152,7 +152,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenLöschen(Teilnehmer tln)
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierDatenbank/turnier.db";
+            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
