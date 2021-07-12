@@ -31,6 +31,11 @@ namespace TurnierverwaltungWeb.View
             LoadData();
         }
 
+        protected void btnRedirect_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Test");
+        }
+
         private void LoadData()
         {
             Verwalter.HoleAllePersonen();
