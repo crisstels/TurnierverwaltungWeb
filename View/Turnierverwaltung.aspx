@@ -7,16 +7,23 @@
     <link rel="stylesheet" href="../Content/bootstrap.min.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        li.dropdown:hover .dropdown-menu {display: block}
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div>
         <ul class="nav navbar-nav">
-            <li>
-                <a class="navbar-brand" href="#"> Turnierverwaltung</a>
-            </li>
-            <li>
-                <a href="#">Anmelden</a>
+            <li><a class="navbar-brand" href="#"> Turnierverwaltung</a></li>
+            <li><a href="#">Anmelden</a></li>
+            <li class="dropdown">
+                 <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                     <li><a href="#">Personenverwaltung</a></li>
+                     <li><a href="#">Mannschaftsverwaltung</a></li>
+                     <li><a href="#">Turnierverwaltung</a></li>
+                 </ul>
             </li>
         </ul>
     </div>
