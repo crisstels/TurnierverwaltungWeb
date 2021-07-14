@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 // backend Datei
 namespace TurnierverwaltungWeb.View
 {
-    public partial class Turnierverwaltung : System.Web.UI.Page
+    public partial class Turnierverwaltung : Page
     {
         private Controller _verwalter;
 
@@ -29,11 +29,6 @@ namespace TurnierverwaltungWeb.View
             Verwalter = Global.Verwalter;
             Verwalter.TeilnehmerListe.Clear();
             LoadData();
-        }
-
-        protected void btnRedirect_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Test");
         }
 
         private void LoadData()

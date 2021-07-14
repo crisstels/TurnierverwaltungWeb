@@ -20,7 +20,7 @@
             <li class="dropdown">
                  <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                     <li><a onclick="btnRedirect_Click" href="./Test">Personenverwaltung</a></li>
+                     <li><a href="./Personenverwaltung1.aspx">Personenverwaltung</a></li>
                      <li><a href="#">Mannschaftsverwaltung</a></li>
                      <li><a href="#">Turnierverwaltung</a></li>
                  </ul>
@@ -81,7 +81,7 @@
             <asp:Button ID="BPerson" runat="server" Text="Submit" OnClick="btnOk_Click" CssClass="btn btn-default btn-lg" />
         </div>
         <div class="form-group col-sm-offset-2 col-sm-10">
-            <asp:Button ID="btnRedirect" runat="server" Text="Redirect to.." OnClick="btnRedirect_Click" CssClass="btn btn-default btn-lg" />
+            <asp:Button ID="btnRedirect" runat="server" Text="Redirect to.."  CssClass="btn btn-default btn-lg" />
         </div>
     </form>
     <asp:Table ID="Person" runat="server" CssClass="table">
@@ -92,7 +92,6 @@
             <asp:TableCell>Vorname</asp:TableCell>
             <asp:TableCell>Geburtstag</asp:TableCell>
             <asp:TableCell>Größe</asp:TableCell>
-
         </asp:TableHeaderRow>
     </asp:Table>
 </body>
