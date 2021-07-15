@@ -23,6 +23,52 @@ namespace TurnierverwaltungWeb.View
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Verwalter = Global.Verwalter;
+            Verwalter.TeilnehmerListe.Clear();
+            LoadData();
+
+        }
+
+        protected void LoadData()
+        {
+            Verwalter.HoleAllePersonen();
+            //Konfiguration der Website
+            TableHeaderRow tmp = (TableHeaderRow)this.Person.Rows[0];
+            this.Person.Rows.Clear();
+            this.Person.Rows.Add(tmp);
+
+            //´Zeige alle Teilnehmer aus der Teilnehmertabelle an
+            foreach (Teilnehmer tln in Verwalter.TeilnehmerListe)
+            {
+                TableRow neueZeile = new TableRow();
+                TableCell neueSpalte = new TableCell();
+
+                neueSpalte.Text = tln.Nummer.ToString();
+                neueZeile.Cells.Add(neueSpalte);
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Rolle;
+                neueZeile.Cells.Add(neueSpalte);
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Name;
+                neueZeile.Cells.Add(neueSpalte);
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Vorname;
+                neueZeile.Cells.Add(neueSpalte);
+
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Geburtstag;
+                neueZeile.Cells.Add(neueSpalte);
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = Convert.ToString(tln.Groesse);
+                neueZeile.Cells.Add(neueSpalte);
+
+                this.Person.Rows.Add(neueZeile);
+            }
 
         }
         protected void button1_Click(object sender, EventArgs e)
@@ -34,21 +80,26 @@ namespace TurnierverwaltungWeb.View
             fussDiv.Visible = false;
             basketDiv.Visible = false;
             trainerDiv.Visible = false;
+            testdiv.Visible = true;
 
             switch (selectedItem)
             {
                 case "volleyball":
                     volleyDiv.Visible = true;
+                    BPerson.Visible = true;
                     break;
                 case "fussball":
                     fussDiv.Visible = true;
+                    BPerson.Visible = true;
                     break;
                 case "basketball":
                     basketDiv.Visible = true;
+                    BPerson.Visible = true;
                     break;
                 case "trainer":
                     testdiv.Visible = false;
                     trainerDiv.Visible = true;
+                    BPerson.Visible = true;
                     break;
                 default:
                     Console.WriteLine("An error occurred");

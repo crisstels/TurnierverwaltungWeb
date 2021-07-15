@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default">
     <div>
         <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="#"> Turnierverwaltung</a></li>
+            <li><a class="navbar-brand" href="./Turnierverwaltung"> Turnierverwaltung</a></li>
             <li><a href="#">Anmelden</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
@@ -106,12 +106,22 @@
                     </div>
                  </div>
         <div class="form-group">
-            <div class="col-md-offset-4 col-md-8">
-                <asp:Button ID="BPerson" runat="server" visible="false" Text="Submit" OnClick="btnOKPerson" CssClass="btn btn-primary btn-lg" />
+            <div class="col-md-offset-3 col-md-3">
+                <asp:Button ID="BPerson" runat="server" visible="false" Text="Submit" OnClick="btnOKPerson" align="right" CssClass="btn btn-primary btn-lg" />
             </div>
         </div>
-       </div>
-        </div>
+      </div>
+     </div>
     </form>
+    <asp:Table ID="Person" runat="server" CssClass="table">
+        <asp:TableHeaderRow CssClass="active">
+            <asp:TableCell>ID</asp:TableCell>
+            <asp:TableCell>Rolle</asp:TableCell>
+            <asp:TableCell>Name</asp:TableCell>
+            <asp:TableCell>Vorname</asp:TableCell>
+            <asp:TableCell>Geburtstag</asp:TableCell>
+            <asp:TableCell>Größe</asp:TableCell>
+        </asp:TableHeaderRow>
+    </asp:Table>
 </body>
 </html>
