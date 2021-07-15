@@ -37,7 +37,7 @@ namespace TurnierverwaltungWeb.View
             this.Person.Rows.Clear();
             this.Person.Rows.Add(tmp);
 
-            //´Zeige alle Teilnehmer aus der Teilnehmertabelle an
+            //Zeige alle Teilnehmer aus der Teilnehmertabelle an
             foreach (Teilnehmer tln in Verwalter.TeilnehmerListe)
             {
                 TableRow neueZeile = new TableRow();
@@ -73,6 +73,7 @@ namespace TurnierverwaltungWeb.View
         }
         protected void button1_Click(object sender, EventArgs e)
         {
+            // Zeige die richtigen TextInputs an je nach Rolle
             string selectedItem = RadioButtonList1.SelectedValue.ToLower();
             System.Diagnostics.Debug.WriteLine(selectedItem);
 
@@ -109,6 +110,7 @@ namespace TurnierverwaltungWeb.View
 
         protected void btnOKPerson(object sender, EventArgs e)
         {
+            //Speichere die eingegbenen Daten in die DB-Tabllen
             string selectedItem = RadioButtonList1.SelectedValue.ToLower();
             int groesse = Convert.ToInt32(tbGroesse.Text);
 

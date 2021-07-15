@@ -11,6 +11,8 @@
     <title></title>
     <style type="text/css">
         li.dropdown:hover .dropdown-menu {display: block}
+        .material-icons.md-18 {font-size: 18px}
+        .material-icons.red600 {color: #f00a0a}
     </style>
 </head>
 <body>
@@ -23,7 +25,7 @@
                  <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                  <ul class="dropdown-menu">
                      <li><a href="./Personenverwaltung1.aspx">Personenverwaltung</a></li>
-                     <li><a href="#">Mannschaftsverwaltung</a></li>
+                     <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                      <li><a href="#">Turnierverwaltung</a></li>
                  </ul>
             </li>
@@ -34,6 +36,8 @@
     <h2 align="center">Willkommen zur Turnierverwaltung!<span class="material-icons md-48">emoji_events</span></h2>
     
 </div>
-        
+<hr class="solid" />
+<footer><p>Designed with <span style="vertical-align:bottom" class="material-icons md-18 red600">favorite</span> by Natalie</p>
+</footer>  
 </body>
 </html>

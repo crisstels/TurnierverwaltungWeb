@@ -11,13 +11,18 @@ namespace TurnierverwaltungWeb
     public class Controller
     {
         private List<Teilnehmer> _teilnehmerListe;
+        private List<int> _spielerID;
+        private Mannschaft _team;
 
         public List<Teilnehmer> TeilnehmerListe { get => _teilnehmerListe; set => _teilnehmerListe = value; }
-
+        public List<int> SpielerID { get => _spielerID; set => _spielerID = value; }
+        public Mannschaft Team { get => _team; set => _team = value; }
 
         public Controller()
         {
             TeilnehmerListe = new List<Teilnehmer>();
+            SpielerID = new List<int>();
+            Team = new Mannschaft();
         }
         public void HoleAllePersonen()
         {
@@ -191,12 +196,6 @@ namespace TurnierverwaltungWeb
 
         }
 
-        public void PersonHinzufuegen()
-        {
-            //Teilnehmer tln = new Volleyballspieler(name, vorname, "Volleyballspieler", 1, 4, "Libero");
-            //tln.DatenSpeichern();
-            //this.Teilnehmer.Add(tln);
-        }
         public void VolleyballspielerHinzufuegen(string name, string vorname, string rolle, string geburtstag, int groesse, string position, int trikotnummer, int sprunghoehe)
         {
             Volleyballspieler tln = new Volleyballspieler(name, vorname, rolle, 0, geburtstag, groesse, trikotnummer, position, sprunghoehe);
@@ -234,6 +233,11 @@ namespace TurnierverwaltungWeb
             //suche Teilnehmer anhand der Id und bearbeite diesen
             var tln = TeilnehmerListe.Find(e => e.Nummer == nummer);
             tln.DatenBearbeiten(tln);
+        }
+
+        public void MannschaftHinzufuegen()
+        {
+            Team.MannschaftSpeichern(SpielerID);
         }
 
         #region Worker

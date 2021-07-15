@@ -7,9 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Personenverwaltung</title>
     <link rel="stylesheet" href="../Content/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style type="text/css">
         li.dropdown:hover .dropdown-menu {display: block}
+        .material-icons.md-18 {font-size: 18px}
+        .material-icons.red600 {color: #f00a0a}
     </style>
 </head>
 <body>
@@ -22,7 +26,7 @@
                 <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="./Personenverwaltung.aspx">Personenverwaltung</a></li>
-                    <li><a href="#">Mannschaftsverwaltung</a></li>
+                    <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                     <li><a href="#">Turnierverwaltung</a></li>
                 </ul>
             </li>
@@ -123,5 +127,8 @@
             <asp:TableCell>Größe</asp:TableCell>
         </asp:TableHeaderRow>
     </asp:Table>
+<hr class="solid" />
+<footer><p>Designed with <span style="vertical-align:bottom" class="material-icons md-18 red600">favorite</span> by Natalie</p>
+</footer>
 </body>
 </html>

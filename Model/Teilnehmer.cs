@@ -57,11 +57,10 @@ namespace TurnierverwaltungWeb
         #endregion
         #region Worker
 
-        public void anmelden(){}
-
         public abstract void DatenSpeichern();
         public abstract void DatenBearbeiten(Teilnehmer teilnehmer);
         public abstract void DatenLöschen(Teilnehmer tln);
+
         #endregion
 
     }
