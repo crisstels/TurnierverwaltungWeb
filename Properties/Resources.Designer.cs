@@ -61,6 +61,15 @@ namespace TurnierverwaltungWeb.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db ähnelt.
+        /// </summary>
+        internal static string Database {
+            get {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
         /// </summary>
         internal static string Datenbank {

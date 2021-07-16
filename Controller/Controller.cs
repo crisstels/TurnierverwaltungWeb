@@ -26,8 +26,9 @@ namespace TurnierverwaltungWeb
         }
         public void HoleAllePersonen()
         {
-            var path = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
-
+            //var path = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+            var path = Properties.Resources.Database;
+            System.Diagnostics.Debug.WriteLine("path::" + path);
             string connectionString = "Data Source=" + path + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);

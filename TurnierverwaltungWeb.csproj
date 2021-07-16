@@ -177,7 +177,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="View\Mannschaftsverwaltung.aspx" />
-    <Content Include="View\Personenverwaltung.aspx" />
     <Content Include="View\Personenverwaltung1.aspx" />
     <Content Include="View\Test.aspx" />
     <Content Include="View\Turnierverwaltung.aspx" />
@@ -214,10 +213,6 @@
     </Compile>
     <Compile Include="View\Mannschaftsverwaltung.aspx.designer.cs">
       <DependentUpon>Mannschaftsverwaltung.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Personenverwaltung.aspx.cs">
-      <DependentUpon>Personenverwaltung.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Personenverwaltung1.aspx.cs">
       <DependentUpon>Personenverwaltung1.aspx</DependentUpon>
