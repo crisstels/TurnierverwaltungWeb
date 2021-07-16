@@ -32,7 +32,7 @@ namespace TurnierverwaltungWeb
 
         public void MannschaftSpeichern(List<int> nummern)
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+            string DatabasePath = Properties.Resources.Database;
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
             long lastID = 0;
 

@@ -60,7 +60,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenSpeichern()
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+            string DatabasePath = Properties.Resources.Database;
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
             long lastID = 0;
 
@@ -125,7 +125,7 @@ namespace TurnierverwaltungWeb
         public override void DatenBearbeiten(Teilnehmer tln)
         {
             Basketballspieler basket = (Basketballspieler)tln;
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+            string DatabasePath = Properties.Resources.Database;
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
@@ -175,7 +175,7 @@ namespace TurnierverwaltungWeb
 
         public override void DatenLöschen(Teilnehmer tln)
         {
-            string DatabasePath = "D:/Users/NatalieHasselmann/Documents/2.Lehrjahr/AWE/TurnierverwaltungWeb/TurnierDatenbank/turnier.db";
+            string DatabasePath = Properties.Resources.Database;
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
