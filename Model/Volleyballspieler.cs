@@ -66,6 +66,7 @@ namespace TurnierverwaltungWeb
         public override void DatenSpeichern()
         {
             string DatabasePath = Properties.Resources.Database;
+            System.Diagnostics.Debug.WriteLine("path::" + DatabasePath);
             string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
             long lastID = 0;
 

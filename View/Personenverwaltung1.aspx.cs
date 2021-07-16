@@ -112,17 +112,18 @@ namespace TurnierverwaltungWeb.View
         {
             //Speichere die eingegbenen Daten in die DB-Tabllen
             string selectedItem = RadioButtonList1.SelectedValue.ToLower();
+            System.Diagnostics.Debug.WriteLine("selected:" + selectedItem);
             int groesse = Convert.ToInt32(tbGroesse.Text);
 
             switch (selectedItem)
             {
-                case "volleyballspieler":
+                case "volleyball":
                     Verwalter.VolleyballspielerHinzufuegen(tbName.Text, tbVorname.Text, selectedItem, tbGeburtstag.Text, groesse, tbPosition.Text, Convert.ToInt32(tbTrikotnummer.Text), Convert.ToInt32(tbSprunghoehe.Text));
                     break;
-                case "fussballspieler":
+                case "fussball":
                     Verwalter.FussballspielerHinzufuegen(tbName.Text, tbVorname.Text, selectedItem, tbGeburtstag.Text, groesse, tbPosition.Text, Convert.ToInt32(tbTrikotnummer.Text), tbFuss.Text);
                     break;
-                case "basketballspieler":
+                case "basketball":
                     Verwalter.BasketballspielerHinzufuegen(tbName.Text, tbVorname.Text, selectedItem, tbGeburtstag.Text, groesse, tbPosition.Text, Convert.ToInt32(tbTrikotnummer.Text), Convert.ToInt32(tbAnzeahlKoerbe.Text));
                     break;
                 case "trainer":

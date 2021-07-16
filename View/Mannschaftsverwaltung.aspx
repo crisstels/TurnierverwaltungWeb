@@ -34,33 +34,38 @@
     </div>
 </nav>
     <form id="form1" runat="server">
-        <div>
-            <p>Wählen Sie biite eine Mannschaft aus</p>
-            <select id="selSport">
+        <div class="form-horizontal">
+            <div>
+            <p>Wählen Sie bitte eine Sportart aus</p>
+            <select id="selSport" runat="server" name="selSport">
                 <option value="fussball">Fussball</option>
                 <option value="basketball">Basketball</option>
                 <option value="volleyball">Volleyball</option>
             </select>
         </div>
-        <br />
+        <div class="form-horizontal col-md-8">
         <div class="form-group">
           <asp:Label ID="lbName" runat="server" Text="Mannschaftsname"  class="col-md-1 control-label"></asp:Label>
           <div class="col-md-2">
             <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
           </div>
         </div>
-        <br />
-        <div>
-            <p>Wähle die Mannschaftsmitglieder aus:</p>
-            <div class="form-horizontal">
+            </div>
+        </div>        
+            <div>
                 <div class="form-group">
+                    <p style="justify-content:left">Wähle die Mannschaftsmitglieder aus:</p>
                     <select multiple style="width:45%" class="form-control" runat="server" id="selMannschaft" name="Mannschaft">
                         <option visible="true" id="optleer" value="empty">noch keine Teilnehmer vorhanden</option>
                     </select>
                 </div>
                 <asp:Button runat="server" ID="addSpieler" Text="Add Spieler" onClick="addSpieler_Click" CssClass="btn btn-primary btn-lg"/>
-                <asp:Button runat="server" ID="showID" Text="ShowID" onClick="showID_Click" CssClass="btn btn-primary btn-lg"/>
            </div>
+        <div>
+            <p runat="server" style="margin:10px" ID="lbAddMannschaft" >Wenn Sie eine vollständige Mannschaft registrieren wollen, dann klicken Sie hier: </p>
+            <div class="col-md-2">
+                <asp:Button runat="server" ID="addMannschaft" Text="Add Mannschaft" onClick="addMannschaft_onClick" CssClass="btn btn-primary btn-lg"/>
+            </div>
         </div>
     </form>
 <br />

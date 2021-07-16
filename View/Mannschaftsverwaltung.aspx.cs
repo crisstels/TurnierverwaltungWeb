@@ -33,7 +33,7 @@ namespace TurnierverwaltungWeb.View
         protected void ShowParticipants()
         {
             Verwalter.HoleAllePersonen();
-            selMannschaft.Items.Insert(0, "select program");
+            //selMannschaft.Items.Insert(0, "select program");
             int x = 0;
             foreach (Teilnehmer tln in Verwalter.TeilnehmerListe)
             {
@@ -48,12 +48,14 @@ namespace TurnierverwaltungWeb.View
             var selected = Request.Form["selMannschaft"];
             System.Diagnostics.Debug.WriteLine(selected);
             Verwalter.SpielerID.Add(Convert.ToInt32(selected));
-            System.Diagnostics.Debug.WriteLine(RuntimeHelpers.GetHashCode(Verwalter.SpielerID));
         }
 
-        protected void showID_Click(object sender, EventArgs e)
+        protected void addMannschaft_onClick(object sender, EventArgs e)
         {
-            
+            var selectedSport = Request.Form["selSport"];
+            System.Diagnostics.Debug.WriteLine("request::", selectedSport);
+            System.Diagnostics.Debug.WriteLine("name::", tbName.Text);
+            Verwalter.MannschaftHinzufuegen(tbName.Text, selectedSport);
         }
     }
 }

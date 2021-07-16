@@ -100,7 +100,7 @@ namespace TurnierverwaltungWeb
 
             // speichert nun die Daten in die Spielertabelle
 
-            string insertSpieler = "insert into Basketballspieler (Trikotnummer, Position, Groesse, TeilnehmerID) values('" + Trikotnummer + "', '" + Position + "', '" + Groesse + "', '" + lastID + "');";
+            string insertSpieler = "insert into Basketballspieler (Trikotnummer, Position, AnzahlKoerbe, BasketballspielerID) values('" + Trikotnummer + "', '" + Position + "', '" + AnzahlKoerbe + "', '" + lastID + "');";
             SQLiteCommand command1 = new SQLiteCommand(insertSpieler, Connection);
             anzahl = -1;
 

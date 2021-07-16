@@ -24,10 +24,10 @@ namespace TurnierverwaltungWeb
             SpielerID = new List<int>();
             Team = new Mannschaft();
         }
+
         public void HoleAllePersonen()
         {
             var path = Properties.Resources.Database;
-            System.Diagnostics.Debug.WriteLine("path::" + path);
             string connectionString = "Data Source=" + path + ";Version=3;";
 
             SQLiteConnection Connection = new SQLiteConnection(connectionString);
@@ -235,8 +235,9 @@ namespace TurnierverwaltungWeb
             tln.DatenBearbeiten(tln);
         }
 
-        public void MannschaftHinzufuegen()
+        public void MannschaftHinzufuegen(string name, string sportart)
         {
+            Mannschaft Team = new Mannschaft(name, sportart);
             Team.MannschaftSpeichern(SpielerID);
         }
 

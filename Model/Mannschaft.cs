@@ -26,6 +26,12 @@ namespace TurnierverwaltungWeb
             Spieler = new List<Teilnehmer>();
             Sportart = "";
         }
+
+        public Mannschaft(string name, string sportart)
+        {
+            Name = name;
+            Sportart = sportart;
+        }
         public string Name { get => _name; set => _name = value; }
         public List<Teilnehmer> Spieler { get => _spieler; set => _spieler = value; }
         public string Sportart { get => _sportart; set => _sportart = value; }
@@ -52,7 +58,7 @@ namespace TurnierverwaltungWeb
 
             // speichert zuerst die Daten in der Mannschaftstabelle
 
-            string insertMannschaft = "insert into Mannschaft(Name, Sportart) values('" + Name + "', '" + Sportart + "'); ";
+            string insertMannschaft = "insert into Mannschaft(Bezeichnung, Sportart) values('" + Name + "', '" + Sportart + "'); ";
             SQLiteCommand command = new SQLiteCommand(insertMannschaft, Connection);
 
             try

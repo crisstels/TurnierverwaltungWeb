@@ -24,6 +24,15 @@ namespace TurnierverwaltungWeb.View
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// selSport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selSport;
+
+        /// <summary>
         /// lbName-Steuerelement
         /// </summary>
         /// <remarks>
@@ -60,12 +69,21 @@ namespace TurnierverwaltungWeb.View
         protected global::System.Web.UI.WebControls.Button addSpieler;
 
         /// <summary>
-        /// showID-Steuerelement
+        /// lbAddMannschaft-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button showID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbAddMannschaft;
+
+        /// <summary>
+        /// addMannschaft-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addMannschaft;
     }
 }
