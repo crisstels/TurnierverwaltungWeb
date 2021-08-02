@@ -7,3 +7,4 @@ SELECT * FROM Basketballspieler;
 SELECT * FROM Fussballspieler;
 SELECT * FROM Mannschaft;
 SELECT * FROM Mitglied_von;
+SELECT * From Rangliste;

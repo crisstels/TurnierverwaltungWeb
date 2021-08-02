@@ -27,6 +27,7 @@ namespace TurnierverwaltungWeb.View
             Verwalter = Global.Verwalter;
             //Verwalter.TeilnehmerListe.Clear();
             ShowParticipants();
+            showTeam();
 
         }
 
@@ -56,6 +57,32 @@ namespace TurnierverwaltungWeb.View
             System.Diagnostics.Debug.WriteLine("request::", selectedSport);
             System.Diagnostics.Debug.WriteLine("name::", tbName.Text);
             Verwalter.MannschaftHinzufuegen(tbName.Text, selectedSport);
+        }
+
+        protected void showTeam()
+        {
+            Verwalter.MannschaftHolen();
+            //Konfiguration der Website
+            TableHeaderRow tmp = (TableHeaderRow)this.Mannschaft.Rows[0];
+            this.Mannschaft.Rows.Clear();
+            this.Mannschaft.Rows.Add(tmp);
+
+            //Zeige alle Teilnehmer aus der Teilnehmertabelle an
+            foreach (Mannschaft tln in Verwalter.TeamListe)
+            {
+                TableRow neueZeile = new TableRow();
+                TableCell neueSpalte = new TableCell();
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Name;
+                neueZeile.Cells.Add(neueSpalte);
+
+                neueSpalte = new TableCell();
+                neueSpalte.Text = tln.Sportart;
+                neueZeile.Cells.Add(neueSpalte);
+
+                this.Mannschaft.Rows.Add(neueZeile);
+            }
         }
     }
 }

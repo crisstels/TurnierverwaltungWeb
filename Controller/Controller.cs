@@ -10,21 +10,30 @@ namespace TurnierverwaltungWeb
 {
     public class Controller
     {
+        #region Properties
         private List<Teilnehmer> _teilnehmerListe;
         private List<int> _spielerID;
         private Mannschaft _team;
+        private List<Mannschaft> _teamListe;
+        #endregion
 
+        #region Accessors/Modifiers
         public List<Teilnehmer> TeilnehmerListe { get => _teilnehmerListe; set => _teilnehmerListe = value; }
         public List<int> SpielerID { get => _spielerID; set => _spielerID = value; }
         public Mannschaft Team { get => _team; set => _team = value; }
+        public List<Mannschaft> TeamListe { get => _teamListe; set => _teamListe = value; }
+        #endregion
 
+        #region Constructor
         public Controller()
         {
             TeilnehmerListe = new List<Teilnehmer>();
             SpielerID = new List<int>();
             Team = new Mannschaft();
+            _teamListe = new List<Mannschaft>();
         }
-
+        #endregion
+        #region Worker
         public void HoleAllePersonen()
         {
             var path = Properties.Resources.Database;
@@ -241,8 +250,128 @@ namespace TurnierverwaltungWeb
             Team.MannschaftSpeichern(SpielerID);
         }
 
-        #region Worker
+        public void MannschaftHolen()
+        {
+            var path = Properties.Resources.Database;
+            string connectionString = "Data Source=" + path + ";Version=3;";
 
+            SQLiteConnection Connection = new SQLiteConnection(connectionString);
+            SQLiteDataReader reader = null;
+
+            // Open Database Connection
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            // Select everything from Volleyball Database (Teilnehmer inner join Volleyballspieler)
+            string selectQuery = "Select * From Mannschaft;";
+            SQLiteCommand command = new SQLiteCommand(selectQuery, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetValue(1).ToString();
+                    string sportart = reader.GetValue(2).ToString();
+
+                    Mannschaft mannschaft = new Mannschaft(name, sportart);
+                    TeamListe.Add(mannschaft);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error, cannot find any data for Volleyballspieler");
+            }
+
+        }
+
+        public void TurnierHinzufuegen(string mannschaftA, string mannschaftB, string sportart, int ergebnisA, int ergebnisB)
+        {
+            string DatabasePath = Properties.Resources.Database;
+            string connectionString = "Data Source=" + DatabasePath + ";Version=3;";
+            int idA = 0;
+            int idB = 0;
+
+            SQLiteConnection Connection = new SQLiteConnection(connectionString);
+            SQLiteDataReader reader = null;
+
+            // Open Database Connection
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+            // Select ID from MannschaftA and MannschaftB
+            string selectTeamA = "Select MannschaftID From Mannschaft Where Bezeichnung=(" + mannschaftA + ");";
+            string selectTeamB = "Select MannschaftID From Mannschaft Where Bezeichnung=(" + mannschaftB + ");";
+
+            SQLiteCommand command = new SQLiteCommand(selectTeamA, Connection);
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                   idA = reader.GetInt32(0); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error, cannot find any data for MannschaftA");
+            }
+
+            reader = null;
+            command = new SQLiteCommand(selectTeamB, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    idB = reader.GetInt32(0);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error, cannot find any data for MannschaftB");
+            }
+
+            Turnier turnier = new Turnier(idA, idB, sportart, ergebnisA, ergebnisB);
+            turnier.DatenSpeichern();
+        }
         #endregion
     }
 }

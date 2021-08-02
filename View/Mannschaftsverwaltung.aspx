@@ -68,6 +68,13 @@
             </div>
         </div>
     </form>
+    <asp:Table ID="Mannschaft" runat="server" CssClass="table">
+        <asp:TableHeaderRow CssClass="active">
+            <asp:TableCell>Name</asp:TableCell>
+            <asp:TableCell>Sportart</asp:TableCell>
+            <asp:TableCell>Spieler</asp:TableCell>
+        </asp:TableHeaderRow>
+    </asp:Table>
 <br />
 <hr class="solid" />
 <footer><p>Designed with <span style="vertical-align:bottom" class="material-icons md-18 red600">favorite</span> by Natalie</p>

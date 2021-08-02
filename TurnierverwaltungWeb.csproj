@@ -195,6 +195,7 @@
     <Compile Include="Model\Mannschaft.cs" />
     <Compile Include="Model\Teilnehmer.cs" />
     <Compile Include="Model\Trainer.cs" />
+    <Compile Include="Model\Turnier.cs" />
     <Compile Include="Model\Volleyballspieler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
