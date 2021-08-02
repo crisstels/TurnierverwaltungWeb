@@ -179,6 +179,7 @@
     <Content Include="View\Mannschaftsverwaltung.aspx" />
     <Content Include="View\Personenverwaltung1.aspx" />
     <Content Include="View\Test.aspx" />
+    <Content Include="View\Startseite.aspx" />
     <Content Include="View\Turnierverwaltung.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -228,6 +229,13 @@
     </Compile>
     <Compile Include="View\Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Startseite.aspx.cs">
+      <DependentUpon>Startseite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Startseite.aspx.designer.cs">
+      <DependentUpon>Startseite.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Turnierverwaltung.aspx.cs">
       <DependentUpon>Turnierverwaltung.aspx</DependentUpon>

@@ -20,14 +20,14 @@
   <nav class="navbar navbar-default">
     <div>
         <ul class="nav navbar-nav">
-            <li><a class="navbar-brand" href="./Turnierverwaltung"> Turnierverwaltung</a></li>
+            <li><a class="navbar-brand" href="./Startseite"> Startseite</a></li>
             <li><a href="#">Anmelden</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="./Personenverwaltung.aspx">Personenverwaltung</a></li>
                     <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
-                    <li><a href="#">Turnierverwaltung</a></li>
+                    <li><a href="./Turnierverwaltung">Turnierverwaltung</a></li>
                 </ul>
             </li>
         </ul>

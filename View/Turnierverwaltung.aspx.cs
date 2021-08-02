@@ -1,14 +1,13 @@
 ﻿using System;
-using TurnierverwaltungWeb.Properties;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-// backend Datei
+
 namespace TurnierverwaltungWeb.View
 {
-    public partial class Turnierverwaltung : Page
+    public partial class Turnierverwaltung1 : System.Web.UI.Page
     {
         private Controller _verwalter;
 
@@ -18,17 +17,40 @@ namespace TurnierverwaltungWeb.View
             set => _verwalter = value;
         }
 
-        public Turnierverwaltung() : base()
+        public Turnierverwaltung1() : base()
         {
             Verwalter = new Controller();
         }
-        
+        public void addTeam_Click(object sender, EventArgs e)
+        {
 
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Verwalter = Global.Verwalter;
+            showParticipants();
         }
 
-        
+        public void showParticipants()
+        {
+            Verwalter.MannschaftHolen();
+            int x = 0;
+            if(Verwalter.TeamListe == null)
+            {
+                ListItem list = new ListItem("noch kein Teilnehmer vorhanden");
+                selMannschaftA.Items.Insert(x, list);
+                selMannschaftB.Items.Insert(x, list);
+            }
+            else
+            {
+                foreach (Mannschaft team in Verwalter.TeamListe)
+                {
+                    ListItem list = new ListItem(team.Name);
+                    selMannschaftA.Items.Insert(x, list);
+                    selMannschaftB.Items.Insert(x, list);
+                    x++;
+                }
+            }
+        }
     }
 }
