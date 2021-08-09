@@ -60,6 +60,42 @@ namespace TurnierverwaltungWeb.View
         protected global::System.Web.UI.WebControls.TextBox tbSportart;
 
         /// <summary>
+        /// lbErgebnisA-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbErgebnisA;
+
+        /// <summary>
+        /// tbErgebnisA-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbErgebnisA;
+
+        /// <summary>
+        /// lbErgebnisB-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbErgebnisB;
+
+        /// <summary>
+        /// tbErgebnisB-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbErgebnisB;
+
+        /// <summary>
         /// Button1-Steuerelement
         /// </summary>
         /// <remarks>

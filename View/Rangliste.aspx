@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Startseite.aspx.cs" Inherits="TurnierverwaltungWeb.View.Turnierverwaltung" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Rangliste.aspx.cs" Inherits="TurnierverwaltungWeb.View.Rangliste" %>
 
 <!DOCTYPE html>
 
@@ -27,16 +27,37 @@
                      <li><a href="./Personenverwaltung1">Personenverwaltung</a></li>
                      <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                      <li><a href="./Turnierverwaltung">Turnierverwaltung</a></li>
-                     <li><a href="./Rangliste">Turnier Tabellen</a></li>
+                     <li><a href="#">Rangliste</a></li>
                  </ul>
             </li>
         </ul>
     </div>
 </nav>
+<form id="form1" runat="server">
 <div>
-    <h2 align="center">Willkommen zur Turnierverwaltung!<span class="material-icons md-48">emoji_events</span></h2>
-    
+    <div class="checkbox">
+            <p>Bitte wählen Sie eine Sportart aus, um die dazugehörige Rangliste sehen zu können</p>
+            <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True"  >
+                <asp:ListItem >Fussball</asp:ListItem>
+                <asp:ListItem >Basketball</asp:ListItem>
+                <asp:ListItem >Volleyball</asp:ListItem>
+            </asp:RadioButtonList>
+    </div>
+    <div>
+        <asp:Button ID="bSportart" runat="server" text="submit" OnClick="bSportart_okClick"/>
+    </div>
 </div>
+</form>
+    <div>
+        <asp:Table ID="Turnier" runat="server" CssClass="table">
+        <asp:TableHeaderRow CssClass="active">
+            <asp:TableCell>Mannschaft A</asp:TableCell>
+            <asp:TableCell>Mannschaft B</asp:TableCell>
+            <asp:TableCell>Ergebnis A</asp:TableCell>
+            <asp:TableCell>Ergebnis B</asp:TableCell>
+        </asp:TableHeaderRow>
+    </asp:Table>
+    </div>
 <hr class="solid" />
 <footer><p>Designed with <span style="vertical-align:bottom" class="material-icons md-18 red600">favorite</span> by Natalie</p>
 </footer>  

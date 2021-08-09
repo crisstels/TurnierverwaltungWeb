@@ -62,34 +62,6 @@ namespace TurnierverwaltungWeb
                 Console.WriteLine(e);
                 return;
             }
-            /*
-            // Select ID from MannschaftA and MannschaftB
-            string selectTeamA = "Select MannschaftID From Mannschaft Where Bezeichnung=(" + MannschaftA + ");";
-            string selectTeamB = "Select MannschaftID From Mannschaft Where Bezeichnung=(" + MannschaftB + ");";
-
-            SQLiteCommand command = new SQLiteCommand(selectTeamA, Connection);
-            SQLiteCommand commandB = new SQLiteCommand(selectTeamB, Connection);
-            try
-            {
-                reader = command.ExecuteReader();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    int id = reader.GetInt32(0);
-                    
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error, cannot find any data for Volleyballspieler");
-            }*/
 
             string insertTurnier = "insert into Turnierergebnis (TeilnehmerA, TeilnehmerB, Sportart, ErgebnisA, ErgebnisB) values('" + MannschaftA + "', '" + MannschaftB + "', '" + Sportart + "', '" + ErgebnisA + "', '" + ErgebnisB + "');";
             SQLiteCommand command = new SQLiteCommand(insertTurnier, Connection);

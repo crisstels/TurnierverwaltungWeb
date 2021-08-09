@@ -23,6 +23,10 @@ namespace TurnierverwaltungWeb.View
         }
         public void addTeam_Click(object sender, EventArgs e)
         {
+            var selectedA = Request.Form["selMannschaftA"];
+            var selectedB = Request.Form["selMannschaftB"];
+            System.Diagnostics.Debug.WriteLine(selectedA);
+            Verwalter.TurnierHinzufuegen(selectedA, selectedB, tbSportart.Text, Convert.ToInt32(tbErgebnisA.Text), Convert.ToInt32(tbErgebnisB.Text));
 
         }
         protected void Page_Load(object sender, EventArgs e)

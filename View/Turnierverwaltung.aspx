@@ -44,11 +44,21 @@
                     <select multiple style="width:45%" class="form-control" runat="server" id="selMannschaftB" name="MannschaftB"> 
                     </select>
                 </div>
+                <div class="form-horizontal">
                 <div class="form-group">
                     <asp:Label  ID="lbSportart" runat="server" Text="Sportart"  class="col-md-3 control-label"></asp:Label>
                     <div class="col-md-2">
                         <asp:TextBox  ID="tbSportart" runat="server" placeholder="Enter here your kind of sport..."></asp:TextBox>
                     </div>
+                    <asp:Label ID="lbErgebnisA" runat="server" Text="Ergebnis Mannschaft A" CssClass="col-md-3 control-label"></asp:Label>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="tbErgebnisA" runat="server" placeholder="Enter result of team A here..."></asp:TextBox>
+                    </div>
+                    <asp:Label ID="lbErgebnisB" runat="server" Text="Ergebnis Mannschaft B" CssClass="col-md-3 control-label label"></asp:Label>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="tbErgebnisB" runat="server" placeholder="Enter result of team B here..."></asp:TextBox>
+                    </div>
+                </div>
                 </div>
            </div>
         <asp:Button runat="server" ID="Button1" align="center" Text="Add Team" onClick="addTeam_Click" CssClass="btn btn-primary btn-lg"/>
