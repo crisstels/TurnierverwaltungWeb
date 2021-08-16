@@ -11,7 +11,7 @@ namespace TurnierverwaltungWeb.View
 {
 
 
-    public partial class Rangliste
+    public partial class Turnierergebnis
     {
 
         /// <summary>

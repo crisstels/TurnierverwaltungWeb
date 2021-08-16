@@ -36,11 +36,9 @@ CREATE TABLE IF NOT EXISTS Turnierergebnis(
 
 CREATE TABLE IF NOT EXISTS Rangliste(
     RanglisteID integer PRIMARY KEY AUTOINCREMENT,
-    SpielID integer,
     Name varchar(30),
     Sportart varchar(30),
     Punkte integer,
-    FOREIGN KEY (SpielID) REFERENCES Turnierergebnis(TurnierergebnisID),
     FOREIGN KEY (Name) REFERENCES Mannschaft(MannschaftID)
 );
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Rangliste.aspx.cs" Inherits="TurnierverwaltungWeb.View.Rangliste" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Turnierergebnis.aspx.cs" Inherits="TurnierverwaltungWeb.View.Turnierergebnis" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@
                      <li><a href="./Personenverwaltung1">Personenverwaltung</a></li>
                      <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                      <li><a href="./Turnierverwaltung">Turnierverwaltung</a></li>
-                     <li><a href="#">Rangliste</a></li>
+                     <li><a href="#">Turnierergebnis</a></li>
                  </ul>
             </li>
         </ul>

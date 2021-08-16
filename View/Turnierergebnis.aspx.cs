@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TurnierverwaltungWeb.View
 {
-    public partial class Rangliste : System.Web.UI.Page
+    public partial class Turnierergebnis : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
