@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS Rangliste(
     RanglisteID integer PRIMARY KEY AUTOINCREMENT,
     Name varchar(30),
     Sportart varchar(30),
-    Punkte integer,
+    Punkte integer, 
     FOREIGN KEY (Name) REFERENCES Mannschaft(MannschaftID)
 );
 

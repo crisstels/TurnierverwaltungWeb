@@ -75,7 +75,7 @@ namespace TurnierverwaltungWeb
                 Console.WriteLine(anzahl);
             }
 
-            //close connections
+            //close connection
 
             Connection.Close();
 

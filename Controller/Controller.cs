@@ -16,6 +16,7 @@ namespace TurnierverwaltungWeb
         private Mannschaft _team;
         private List<Mannschaft> _teamListe;
         private List<Turnier> _turnierListe;
+        private List<Rang> _rangliste;
         #endregion
 
         #region Accessors/Modifiers
@@ -24,6 +25,7 @@ namespace TurnierverwaltungWeb
         public Mannschaft Team { get => _team; set => _team = value; }
         public List<Mannschaft> TeamListe { get => _teamListe; set => _teamListe = value; }
         public List<Turnier> TurnierListe { get => _turnierListe; set => _turnierListe = value; }
+        public List<Rang> Rangliste { get => _rangliste; set => _rangliste = value; }
         #endregion
 
         #region Constructor
@@ -32,8 +34,9 @@ namespace TurnierverwaltungWeb
             TeilnehmerListe = new List<Teilnehmer>();
             SpielerID = new List<int>();
             Team = new Mannschaft();
-            _teamListe = new List<Mannschaft>();
+            TeamListe = new List<Mannschaft>();
             TurnierListe = new List<Turnier>();
+            Rangliste = new List<Rang>();
         }
         #endregion
         #region Worker
@@ -251,6 +254,9 @@ namespace TurnierverwaltungWeb
         {
             Mannschaft Team = new Mannschaft(name, sportart);
             Team.MannschaftSpeichern(SpielerID);
+            // lege Eintrag für Mannschaft in der Rangliste an, mit dem Startpunktestand 0
+            Rang rang = new Rang(name, sportart, 0);
+            rang.DatenSpeichern();
         }
 
         public void MannschaftHolen()
@@ -299,6 +305,9 @@ namespace TurnierverwaltungWeb
             {
                 Console.WriteLine("Error, cannot find any data for Volleyballspieler");
             }
+            //close connection
+
+            Connection.Close();
 
         }
 
@@ -372,6 +381,27 @@ namespace TurnierverwaltungWeb
             // speichere die Daten in die Turnierergebnisse Tabelle ein
             Turnier turnier = new Turnier(idA, idB, sportart, ergebnisA, ergebnisB);
             turnier.DatenSpeichern();
+
+            //close connection
+
+            Connection.Close();
+
+            // update Rangliste
+            if (ergebnisA > ergebnisB)
+            {
+                RanglisteBearbeiten(mannschaftA, mannschaftB, sportart, 3, 0);
+                return;
+            }
+            else if(ergebnisB == ergebnisA)
+            {
+                RanglisteBearbeiten(mannschaftA, mannschaftB, sportart, 1, 1);
+                return;
+            }
+            else
+            {
+                RanglisteBearbeiten(mannschaftA, mannschaftB, sportart, 0, 3);
+            }
+
         }
 
         public void TurnierergebnisseHolen(string sportart)
@@ -420,8 +450,74 @@ namespace TurnierverwaltungWeb
             }
             else
             {
-                Console.WriteLine("Error, cannot find any data for Volleyballspieler");
+                Console.WriteLine("Error, cannot find any data for Turnierergebnis");
             }
+            //close connection
+
+            Connection.Close();
+        }
+
+        public void RanglisteAbrufen(string sportart)
+        {
+            var path = Properties.Resources.Database;
+            string connectionString = "Data Source=" + path + ";Version=3;";
+
+            SQLiteConnection Connection = new SQLiteConnection(connectionString);
+            SQLiteDataReader reader = null;
+
+            // Open Database Connection
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            // Select everything from Volleyball Database (Teilnehmer inner join Volleyballspieler)
+            string selectQuery = "Select * From Rangliste Where Sportart = \"" + sportart + "\";";
+            SQLiteCommand command = new SQLiteCommand(selectQuery, Connection);
+
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string name = reader.GetValue(1).ToString();
+                    int punkte = reader.GetInt32(3);
+
+
+                    Rang rang = new Rang(name, sportart, punkte);
+                    Rangliste.Add(rang);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error, cannot find any data for Rangliste");
+            }
+
+            //close connection
+
+            Connection.Close();
+        }
+
+        public void RanglisteBearbeiten(string mannschaftA, string mannschaftB, string sportart, int punkteA, int punkteB)
+        {
+            Rang rangA = new Rang(mannschaftA, sportart, punkteA);
+            Rang rangB = new Rang(mannschaftB, sportart, punkteB);
+
+            //addiere die Punkte auf die schon vorhandenen Punkte in der Rangliste
+            rangA.DatenBearbeiten();
+            rangB.DatenBearbeiten();
         }
         #endregion
     }
