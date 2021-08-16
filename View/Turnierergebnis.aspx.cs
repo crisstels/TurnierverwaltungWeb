@@ -42,7 +42,7 @@ namespace TurnierverwaltungWeb.View
             this.Turnier.Rows.Clear();
             this.Turnier.Rows.Add(tmp);
 
-            //Zeige Rangliste einer bestimmten Sportart an
+            //Zeige Turnierergebnisse einer bestimmten Sportart an
             foreach (Turnier turnier in Verwalter.TurnierListe)
             {
                 TableRow neueZeile = new TableRow();

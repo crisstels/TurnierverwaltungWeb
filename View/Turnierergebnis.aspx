@@ -23,7 +23,7 @@
             <li class="dropdown">
                  <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                     <li><a href="./Personenverwaltung1">Personenverwaltung</a></li>
+                     <li><a href="./Personenverwaltung">Personenverwaltung</a></li>
                      <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                      <li><a href="./Turnierverwaltung">Turnierverwaltung</a></li>
                  </ul>
@@ -36,7 +36,7 @@
 <form id="form1" runat="server">
 <div>
     <div class="checkbox">
-            <p>Bitte wählen Sie eine Sportart aus, um die dazugehörige Rangliste sehen zu können</p>
+            <p>Bitte wählen Sie eine Sportart aus, um die dazugehörigen Turnierergebnisse sehen zu können</p>
             <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True"  >
                 <asp:ListItem >Fussball</asp:ListItem>
                 <asp:ListItem >Basketball</asp:ListItem>

@@ -491,8 +491,8 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
-                    string name = reader.GetValue(1).ToString();
-                    int punkte = reader.GetInt32(3);
+                    string name = reader.GetValue(2).ToString();
+                    int punkte = reader.GetInt32(4);
 
 
                     Rang rang = new Rang(name, sportart, punkte);

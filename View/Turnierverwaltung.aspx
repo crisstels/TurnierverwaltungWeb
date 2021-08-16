@@ -23,7 +23,7 @@
             <li class="dropdown">
                  <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verwaltung<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                     <li><a href="./Personenverwaltung1">Personenverwaltung</a></li>
+                     <li><a href="./Personenverwaltung">Personenverwaltung</a></li>
                      <li><a href="./Mannschaftsverwaltung">Mannschaftsverwaltung</a></li>
                      <li><a href="./Turnierverwaltung">Turnierverwaltung</a></li>
                  </ul>
