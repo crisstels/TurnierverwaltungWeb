@@ -15,6 +15,8 @@ namespace TurnierverwaltungWeb
         private string _sportart;
         private int _ergebnisA;
         private int _ergebnisB;
+        private string _nameA;
+        private string _nameB;
         #endregion
 
         #region Accessors/Modifiers
@@ -23,6 +25,8 @@ namespace TurnierverwaltungWeb
         public string Sportart { get => _sportart; set => _sportart = value; }
         public int ErgebnisA { get => _ergebnisA; set => _ergebnisA = value; }
         public int ErgebnisB { get => _ergebnisB; set => _ergebnisB = value; }
+        public string NameA { get => _nameA; set => _nameA = value; }
+        public string NameB { get => _nameB; set => _nameB = value; }
         #endregion
 
         #region Konstruktor
@@ -33,11 +37,22 @@ namespace TurnierverwaltungWeb
             Sportart = " ";
             ErgebnisA = 0;
             ErgebnisB = 0;
+            NameA = "";
+            NameB = "";
         }
         public Turnier(int mannschaftA, int mannschaftB, string sportart, int ergebnisA, int ergebnisB)
         {
             MannschaftA = mannschaftA;
             MannschaftB = mannschaftB;
+            Sportart = sportart;
+            ErgebnisA = ergebnisA;
+            ErgebnisB = ergebnisB;
+        }
+
+        public Turnier(string nameA, string nameB, string sportart, int ergebnisA, int ergebnisB)
+        {
+            NameA = nameA;
+            NameB = nameB;
             Sportart = sportart;
             ErgebnisA = ergebnisA;
             ErgebnisB = ergebnisB;

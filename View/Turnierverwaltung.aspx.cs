@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TurnierverwaltungWeb.View
 {
-    public partial class Turnierverwaltung1 : System.Web.UI.Page
+    public partial class Turnierverwaltung : System.Web.UI.Page
     {
         private Controller _verwalter;
 
@@ -17,7 +17,7 @@ namespace TurnierverwaltungWeb.View
             set => _verwalter = value;
         }
 
-        public Turnierverwaltung1() : base()
+        public Turnierverwaltung() : base()
         {
             Verwalter = new Controller();
         }

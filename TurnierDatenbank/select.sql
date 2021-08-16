@@ -10,3 +10,4 @@ SELECT * FROM Mitglied_von;
 SELECT * From Rangliste;
 SELECT * FROM Turnierergebnis;
 Select MannschaftID From Mannschaft Where Bezeichnung="Bester Volleyballclub";
+SELECT * FROM Turnierergebnisse;

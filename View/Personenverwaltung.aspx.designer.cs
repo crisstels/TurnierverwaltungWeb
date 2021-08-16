@@ -11,7 +11,7 @@ namespace TurnierverwaltungWeb.View
 {
 
 
-    public partial class Personenverwaltung1
+    public partial class Personenverwaltung
     {
 
         /// <summary>

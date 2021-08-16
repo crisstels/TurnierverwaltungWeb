@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TurnierverwaltungWeb.View
 {
-    public partial class Personenverwaltung1 : System.Web.UI.Page
+    public partial class Personenverwaltung : System.Web.UI.Page
     {
         private Controller _verwalter;
 
@@ -17,7 +17,7 @@ namespace TurnierverwaltungWeb.View
             set => _verwalter = value;
         }
 
-        public Personenverwaltung1() : base()
+        public Personenverwaltung() : base()
         {
             Verwalter = new Controller();
         }
@@ -32,7 +32,6 @@ namespace TurnierverwaltungWeb.View
         protected void LoadData()
         {
             Verwalter.HoleAllePersonen();
-            //Konfiguration der Website
             TableHeaderRow tmp = (TableHeaderRow)this.Person.Rows[0];
             this.Person.Rows.Clear();
             this.Person.Rows.Add(tmp);

@@ -423,7 +423,7 @@ namespace TurnierverwaltungWeb
             }
 
             // Select everything from Volleyball Database (Teilnehmer inner join Volleyballspieler)
-            string selectQuery = "Select * From Turnierergebnis Where Sportart = \"" + sportart + "\";";
+            string selectQuery = "Select * From Turnierergebnisse Where Sportart = \"" + sportart + "\";";
             SQLiteCommand command = new SQLiteCommand(selectQuery, Connection);
 
             try
@@ -439,10 +439,10 @@ namespace TurnierverwaltungWeb
             {
                 while (reader.Read())
                 {
-                    int teilnehmerA = reader.GetInt32(1);
-                    int teilnehmerB = reader.GetInt32(2);
-                    int ergebnisA = reader.GetInt32(4);
-                    int ergebnisB = reader.GetInt32(5);
+                    int ergebnisA = reader.GetInt32(2);
+                    int ergebnisB = reader.GetInt32(3);
+                    string teilnehmerA = reader.GetValue(4).ToString();
+                    string teilnehmerB = reader.GetValue(5).ToString();
 
                     Turnier turnier = new Turnier(teilnehmerA, teilnehmerB, sportart, ergebnisA, ergebnisB);
                     TurnierListe.Add(turnier);
@@ -475,7 +475,6 @@ namespace TurnierverwaltungWeb
                 Console.WriteLine(e);
             }
 
-            // Select everything from Volleyball Database (Teilnehmer inner join Volleyballspieler)
             string selectQuery = "Select * From Rangliste Where Sportart = \"" + sportart + "\";";
             SQLiteCommand command = new SQLiteCommand(selectQuery, Connection);
 
@@ -515,7 +514,7 @@ namespace TurnierverwaltungWeb
             Rang rangA = new Rang(mannschaftA, sportart, punkteA);
             Rang rangB = new Rang(mannschaftB, sportart, punkteB);
 
-            //addiere die Punkte auf die schon vorhandenen Punkte in der Rangliste
+            //addiere Punkte auf die schon vorhandenen Punkte in der Rangliste
             rangA.DatenBearbeiten();
             rangB.DatenBearbeiten();
         }
